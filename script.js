@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     whatsappBtn.addEventListener("click", function () {
         var percentshow = document.querySelector(".progress .precent").textContent;
-        var message = "I dont feel well. I need a hug and patience, because my stress level is " + percentshow;
+        var message = getMessage(percentshow);
 
         var whatsappUrl = "https://api.whatsapp.com/send?text=" + encodeURIComponent(message);
         window.location.href = whatsappUrl;
@@ -45,4 +45,19 @@ document.addEventListener('DOMContentLoaded', function () {
             document.getElementById("whatsappBtn").style.display = "none";
         }
     }
+
+    function getMessage(percentshow) {
+        if (percentshow >= 90) {
+            return "I need to get out of here";
+        } else if (percentshow >= 80) {
+            return "I need to calm down, hug me";
+        } else if (percentshow >= 70) {
+            return "I'm uncomfortable";
+        } else if (percentshow >= 60) {
+            return "I started to feel uncomfortable";
+        } else {
+            return "Default message";
+        }
+    }
 });
+
