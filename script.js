@@ -10,12 +10,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     whatsappBtn.addEventListener("click", function () {
         var percentshow = document.querySelector(".progress .precent").textContent;
-        var message = "I need your help, please hug me or meke me feel confortable because my stress level is " + percentshow;
+        var message = "I dont feel well. I need a hug and patience, because my stress level is " + percentshow;
 
-        // Replace with your WhatsApp number in international format (e.g., +1234567890)
-        var whatsappNumber = "REPLACE_WITH_WHATSAPP_NUMBER"; 
-
-        var whatsappUrl = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(whatsappNumber) + "&text=" + encodeURIComponent(message);
+        var whatsappUrl = "https://api.whatsapp.com/send?text=" + encodeURIComponent(message);
         window.location.href = whatsappUrl;
     });
 
