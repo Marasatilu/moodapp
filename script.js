@@ -56,8 +56,9 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (percentshow >= 60) {
             return "I started to feel uncomfortable";
         } else {
-            return "Default message";
+            return ""; // Default case, should not occur if percentshow is always >= 0
         }
     }
 });
+
 
