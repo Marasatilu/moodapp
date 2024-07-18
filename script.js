@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     whatsappBtn.addEventListener("click", function () {
         var percentshow = parseInt(document.querySelector(".progress .precent").textContent, 10);
-        var message = getMessage(percentshow);
+        var message = getMessage(percentshow, percentshow + "%");
 
         var whatsappUrl = "https://api.whatsapp.com/send?text=" + encodeURIComponent(message);
         window.location.href = whatsappUrl;
@@ -46,17 +46,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function getMessage(percentshow) {
+    function getMessage(percentshow, percentage) {
         if (percentshow >= 90) {
-            return "I need to get out of here";
+            return "I need to get out of here. Percentage: " + percentage;
         } else if (percentshow >= 80) {
-            return "I need to calm down, hug me";
+            return "I need to calm down, hug me. Percentage: " + percentage;
         } else if (percentshow >= 70) {
-            return "I'm uncomfortable";
+            return "I'm uncomfortable. Percentage: " + percentage;
         } else if (percentshow >= 60) {
-            return "I started to feel uncomfortable";
+            return "I started to feel uncomfortable. Percentage: " + percentage;
         } else {
-            return "Default message";
+            return "Default message. Percentage: " + percentage;
         }
     }
 });
