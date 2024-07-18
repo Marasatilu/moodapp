@@ -1,9 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
     var range = document.getElementById("range");
+    var whatsappBtn = document.getElementById("whatsappBtn");
+
     updateProgress(range.value);
 
     range.addEventListener("input", function () {
         updateProgress(this.value);
+    });
+
+    whatsappBtn.addEventListener("click", function () {
+        window.location.href = "whatsapp://send?text=Your custom message here";
     });
 });
 
@@ -28,5 +34,11 @@ function updateProgress(value) {
     } else {
         circle.style.backgroundImage = "linear-gradient(135deg, #ff4e50 10%, #f9d423 100%)"; // Red
     }
-}
 
+    // Show/hide the WhatsApp button based on the value
+    if (percentshow > 60) {
+        document.getElementById("whatsappBtn").style.display = "block";
+    } else {
+        document.getElementById("whatsappBtn").style.display = "none";
+    }
+}
