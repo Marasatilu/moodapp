@@ -10,10 +10,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     whatsappBtn.addEventListener("click", function () {
         var percentshow = document.querySelector(".progress .precent").textContent;
-        var message = "The current mood overload level is " + percentshow;
-        var contactNumber = "+34688720723"; // Replace with your contact number
+        var message = "I need your help, please hug me or meke me feel confortable because my stress level is " + percentshow;
 
-        var whatsappUrl = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(contactNumber) + "&text=" + encodeURIComponent(message);
+        // Replace with your WhatsApp number in international format (e.g., +1234567890)
+        var whatsappNumber = "REPLACE_WITH_WHATSAPP_NUMBER"; 
+
+        var whatsappUrl = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(whatsappNumber) + "&text=" + encodeURIComponent(message);
         window.location.href = whatsappUrl;
     });
 
@@ -47,4 +49,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
-
