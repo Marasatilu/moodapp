@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     whatsappBtn.addEventListener("click", function () {
-        window.location.href = "whatsapp://send?text=Your custom message here";
+        var percentshow = document.querySelector(".progress .precent").textContent;
+        var message = "The current mood overload level is " + percentshow;
+        var whatsappUrl = "https://api.whatsapp.com/send?phone=CONTACT_NUMBER&text=" + encodeURIComponent(message);
+        window.location.href = whatsappUrl;
     });
 });
 
