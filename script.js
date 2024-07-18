@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     whatsappBtn.addEventListener("click", function () {
-        var percentshow = document.querySelector(".progress .precent").textContent;
+        var percentshow = parseInt(document.querySelector(".progress .precent").textContent, 10);
         var message = getMessage(percentshow);
 
         var whatsappUrl = "https://api.whatsapp.com/send?text=" + encodeURIComponent(message);
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function updateProgress(value) {
         var percent = (value / 100) * 5;
-        var percentshow = Math.round((value / 100) * 100);
+        var percentshow = Math.round(value);
         var circle = document.querySelector(".progress .circle");
 
         if (percent < 5) {
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         // Show/hide the WhatsApp button based on the value
-        if (percentshow > 60) {
+        if (percentshow >= 60) {
             document.getElementById("whatsappBtn").style.display = "block";
         } else {
             document.getElementById("whatsappBtn").style.display = "none";
@@ -56,9 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (percentshow >= 60) {
             return "I started to feel uncomfortable";
         } else {
-            return ""; // Default case, should not occur if percentshow is always >= 0
+            return "Default message";
         }
     }
 });
-
-
